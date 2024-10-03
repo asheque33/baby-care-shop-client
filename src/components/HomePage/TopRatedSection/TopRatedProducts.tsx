@@ -6,11 +6,11 @@ import ProductCard from "../../ProductCard";
 import { getProducts } from "@/utils/getProducts";
 
 const TopRatedProducts = async () => {
-  const { data: products } = (await getProducts({
+  const { data: products } = await getProducts({
     next: {
       revalidate: 30,
     },
-  })) as any;
+  });
   // Filter and sort the products based on their rating
   const topRatedProducts: IProduct[] = products
     .sort((a: IProduct, b: IProduct) => b.ratings - a.ratings)

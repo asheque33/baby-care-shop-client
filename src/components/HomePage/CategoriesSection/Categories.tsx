@@ -4,7 +4,7 @@ import React from "react";
 
 const CategoriesSection = () => {
   return (
-    <section className="">
+    <section className="px-4 md:px-8 py-8 lg:px-12">
       <div className="text-center mb-2 md:mb-4">
         <h2 className="text-[#3C3D37] text-lg md:text-2xl lg:text-3xl font-bold">
           Top Categories
@@ -26,8 +26,9 @@ const CategoriesSection = () => {
           <div className="grid grid-rows-2 gap-y-6">
             <Link
               href="/baby-accessories?category=feeding bottle"
-              className="bg-gradient-to-tr  from-[#378CE7] to-[#5356FF] rounded-xl flex items-end ps-6 pb-3 justify-start hover:scale-105 hover:transition-all"
+              className="bg-[#27374D] rounded-xl flex items-end ps-6 pb-3 justify-start hover:scale-105 hover:transition-all"
             >
+              {/*bg-gradient-to-tr  from-[#378CE7] to-[#5356FF]*/}
               Feeding Bottle
             </Link>
             <Link

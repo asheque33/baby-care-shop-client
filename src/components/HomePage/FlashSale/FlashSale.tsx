@@ -3,19 +3,15 @@ import React from "react";
 import { IProduct } from "@/types/product.type";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-async function getProducts(): Promise<IProduct[]> {
-  const result = await fetch("http://localhost:4000/products", {
+import { getProducts } from "@/utils/getProducts";
+
+const FlashSale = async () => {
+  const { data } = await getProducts({
     next: {
       revalidate: 30,
     },
   });
-  const { data } = await result.json();
-  return data;
-}
-
-const FlashSale = async () => {
-  const data = await getProducts();
-  const products = data?.filter(
+  const products: IProduct[] = data?.filter(
     (product: IProduct) => product.isFlashSale === true
   );
   const flashSaleProducts: IProduct[] = products
