@@ -10,7 +10,6 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectedCartItems } from "@/redux/features/cartSlice";
 import { Badge } from "@/components/ui/badge";
 import { selectedToken, setLogOut } from "@/redux/features/authSlice";
-import Container from "../Container/Container";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -43,8 +42,8 @@ const Navbar = () => {
   };
 
   return (
-    <Container className="h-16 bg-[#F5EFE6] bg-opacity-95 shadow-md">
-      <nav className="h-full w-full   text-black mx-auto flex items-center justify-around">
+    <div className="h-16 bg-[#F5EFE6] bg-opacity-95 shadow-md">
+      <nav className="h-full w-full text-black mx-auto flex items-center justify-around">
         <span className="font-extrabold text-xl">
           <Link href={"/"}>
             Bab<span className="text-[#15a2bb]">Kr</span>Shop
@@ -214,7 +213,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-    </Container>
+    </div>
   );
 };
 
