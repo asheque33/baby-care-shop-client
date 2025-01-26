@@ -1,10 +1,36 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import React from "react";
+import CategoryCard from "./CategoryCard";
 
 const CategoriesSection = () => {
+  const categories = [
+    {
+      title: "Baby BathTub",
+      href: "/baby-accessories?category=baby bathtub",
+      image: "https://i.ibb.co.com/KjNVytH/bath-tub.png",
+      bgSize: "128px",
+    },
+    {
+      title: "Feeding Bottle",
+      href: "/baby-accessories?category=feeding bottle",
+      image: "https://i.ibb.co.com/7rWvcwY/feeding-bottle.png",
+      bgSize: "64px",
+    },
+    {
+      title: "Baby Potty Seat",
+      href: "/baby-accessories?category=baby potty seat",
+      image: "https://i.ibb.co.com/KzRTnCy/potty-seat.png",
+      bgSize: "64px",
+    },
+    {
+      title: "Baby Oral Care",
+      href: "/baby-accessories?category=baby oral care",
+      image: "https://i.ibb.co.com/PmY1v6C/oral-care.png",
+      bgSize: "128px",
+    },
+  ];
   return (
-    <section className="px-4 md:px-8 py-8 lg:px-12">
+    <section className="py-8">
       <div className="text-center mb-2 md:mb-4">
         <h2 className="text-[#3C3D37] text-lg md:text-2xl lg:text-3xl font-bold">
           Top Categories
@@ -15,39 +41,18 @@ const CategoriesSection = () => {
         </h6>
       </div>
       <div>
-        <div className="grid md:grid-cols-3 gap-4 h-96 text-white text-xl font-medium ">
-          <Link
-            href="/baby-accessories?category=baby bathtub"
-            className="bg-[#27374D] rounded-xl flex items-end ps-6 pb-6 justify-start hover:scale-105 hover:transition-all"
-          >
-            Baby BathTub
-          </Link>
+        <div className="grid md:grid-cols-3 gap-4 h-96 mx-auto">
+          <CategoryCard {...categories[0]} />
 
-          <div className="grid grid-rows-2 gap-y-6">
-            <Link
-              href="/baby-accessories?category=feeding bottle"
-              className="bg-[#27374D] rounded-xl flex items-end ps-6 pb-3 justify-start hover:scale-105 hover:transition-all"
-            >
-              {/*bg-gradient-to-tr  from-[#378CE7] to-[#5356FF]*/}
-              Feeding Bottle
-            </Link>
-            <Link
-              href="/baby-accessories?category=baby potty seat"
-              className="bg-[#27374D] rounded-xl flex items-end ps-6 pb-3 justify-start hover:scale-105 hover:transition-all"
-            >
-              Baby Potty Seat
-            </Link>
+          <div className="grid grid-rows-2 gap-y-4">
+            <CategoryCard {...categories[1]} />
+            <CategoryCard {...categories[2]} />
           </div>
-          <Link
-            href="/baby-accessories?category=baby oral care"
-            className="bg-[#27374D] rounded-xl flex items-end ps-6 pb-6 justify-start hover:scale-105 hover:transition-all "
-          >
-            Baby Oral Care
-          </Link>
+          <CategoryCard {...categories[3]} />
         </div>
-        <div className="w-[12%] mt-6 mb-8 mx-auto">
+        <div className="w-[25%] my-8 mx-auto">
           <Link href="/categories">
-            <Button className="  btn-square rounded-full w-full px-8 py-2">
+            <Button className="btn-square rounded-md md:rounded-full block ">
               View All
             </Button>
           </Link>
