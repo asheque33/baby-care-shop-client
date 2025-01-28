@@ -27,7 +27,7 @@ const CartDetails = ({ cartProduct }: { cartProduct: any }) => {
         className="w-24 h-24  object-cover rounded-md"
       />
       <div className="flex-grow ">
-        <h3 className="text-lg font-semibold text-green-700 truncate mb-2">
+        <h3 className="text-lg font-semibold text-[#1898ae] truncate mb-2">
           {cartProduct.title}
         </h3>
         <p className="text-lg font-bold text-red-600">${cartProduct.price}</p>
@@ -35,14 +35,14 @@ const CartDetails = ({ cartProduct }: { cartProduct: any }) => {
       <div className="flex items-center space-x-2">
         <Button
           onClick={() => handleQuantity("decrement", cartProduct._id)}
-          className="bg-green-700 text-white p-2 rounded-full hover:bg-green-800"
+          className="bg-[#1898ae] text-white p-2 rounded-full hover:bg-opacity-80"
         >
           <Minus size={18} />
         </Button>
         <span className="text-lg font-semibold">{cartProduct.quantity}</span>
         <Button
           onClick={() => handleQuantity("increment", cartProduct._id)}
-          className="bg-green-700 text-white p-2 rounded-full hover:bg-green-800"
+          className="bg-[#1898ae] text-white p-2 rounded-full hover:bg-opacity-80"
         >
           <Plus size={18} />
         </Button>
