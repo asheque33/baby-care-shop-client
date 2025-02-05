@@ -63,29 +63,33 @@ const CheckoutSummary = () => {
   return (
     <section
       id="checkout-summary"
-      className="static bg-[#F5EFE6] my-6 md:my-0 md:fixed md:top-1/3 md:right-8 z-50 md:transform md:-translate-y-1/2"
+      className="w-full md:w-[25%] static bg-[#F5EFE6] my-6 md:my-0 md:fixed md:top-[40%] md:right-[5%] z-50 md:transform md:-translate-y-1/2"
     >
       <div className="border border-slate-300 rounded-xl  shadow-md shadow-blue-200">
         <div className="px-6 py-4 space-y-4">
           <h1 className="text-3xl font-bold text-dark">Checkout Summary</h1>
-          <p className="text-sm text-dark mt-2">
-            Total Selected Items: {totalItems}
+          <p className="flex justify-between text-sm  text-dark mt-2">
+            <span>Total Selected Items: </span>
+            <span className="pr-4">{totalItems}</span>
           </p>
-          <p className="text-sm text-dark mt-2">
-            SubTotal: ${subTotal.toFixed(2)}
+          <p className="flex justify-between text-sm  text-dark mt-2">
+            <span>SubTotal:</span>
+            <span>{subTotal} $</span>
           </p>
-          <p className="text-sm text-dark mt-2">
-            Shipping: {shipping.toFixed(2)}
+          <p className="flex justify-between text-sm  text-dark mt-2">
+            <span> Shipping:</span>
+            <span>{shipping} $</span>
           </p>
-          <h3 className="text-xl font-semibold text-dark mt-4">
-            Grand Total: {grandTotal.toFixed(2)} Taka
-          </h3>
+          <h5 className="flex justify-between text-base font-medium text-dark mt-4">
+            <span>Grand Total:</span>
+            <span>{grandTotal} $</span>
+          </h5>
 
           {/* Payment Method Option */}
           <div className="border p-4 bg-white rounded-md shadow-md mt-6">
-            <h4 className="text-lg font-semibold text-gray-700 mb-4">
+            <h6 className="text-sm font-semibold text-gray-700 mb-4">
               Payment Method
-            </h4>
+            </h6>
             <div className="flex items-center">
               <Input
                 type="radio"
@@ -93,11 +97,11 @@ const CheckoutSummary = () => {
                 name="paymentMethod"
                 value="Cash On Delivery"
                 defaultChecked
-                className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2"
+                className="w-4 h-4 text-[#1898ae] bg-gray-100 border-gray-300 focus:ring-[#1898ae] focus:ring-2"
               />
               <label
                 htmlFor="cashOnDelivery"
-                className="ml-2 text-sm font-medium text-gray-900"
+                className="ml-2 text-lg font-medium text-gray-900"
               >
                 Cash On Delivery
               </label>
@@ -121,9 +125,9 @@ const CheckoutSummary = () => {
               e.stopPropagation();
               handleProceedCheckout();
             }}
-            className="bg-green-600 px-3 py-2 text-white  mt-2 rounded-md w-full text-xs flex justify-between items-center"
+            className="bg-[#1898ae] px-3 py-2 text-white  mt-2 rounded-md w-full text-xs flex justify-between items-center"
           >
-            <span>Proceed Checkout</span>
+            <span>Proceed To Checkout</span>
             <CreditCard className="inline" width={15} height={15} />
           </Button>
         </div>

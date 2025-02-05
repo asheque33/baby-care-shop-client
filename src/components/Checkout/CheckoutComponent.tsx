@@ -1,16 +1,16 @@
 "use client";
 import { selectedCartItems } from "@/redux/features/cartSlice";
 import { useAppSelector } from "@/redux/hooks";
-import React from "react";
 import CartDetails from "./CartDetails";
 import CheckoutSummary from "./CheckoutSummary";
+import Container from "../Shared/Container/Container";
 
 const CheckoutComponent = () => {
   const cartProducts = useAppSelector(selectedCartItems);
 
   return (
-    <div id="checkout" className="grid grid-cols-12">
-      <section className="col-span-12 md:col-span-8 w-4/5 sm:w-3/4 md:w-full mx-auto">
+    <Container className="grid grid-cols-12">
+      <section className="col-span-12 md:col-span-8 w-4/5 sm:w-3/4 md:w-full mx-auto md:mx-0">
         {cartProducts.length > 0 ? (
           cartProducts.map((cartProduct) => (
             <CartDetails key={cartProduct._id} cartProduct={cartProduct} />
@@ -24,10 +24,10 @@ const CheckoutComponent = () => {
           </div>
         )}
       </section>
-      <section className="col-span-12 md:col-span-4 w-4/5 sm:w-3/4 md:w-full mx-auto">
+      <section className="col-span-12 md:col-span-4 w-4/5 sm:w-3/4 md:w-full mx-auto md:mx-0">
         <CheckoutSummary />
       </section>
-    </div>
+    </Container>
   );
 };
 
