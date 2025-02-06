@@ -16,21 +16,21 @@ const TopRatedProducts = async () => {
     .sort((a: IProduct, b: IProduct) => b.ratings - a.ratings)
     .slice(0, 8);
   return (
-    <section className=" px-4 md:px-8 py-8 lg:px-12">
-      <div className=" flex justify-between items-center mb-2 md:mb-4">
+    <div className="py-8">
+      <section className=" flex justify-between items-center mb-2 md:mb-4">
         <span className="text-lg md:text-2xl lg:text-3xl font-bold ">
           Top Rated Products
         </span>
         <Button asChild>
           <Link href="/baby-accessories">View All</Link>
         </Button>
-      </div>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4  md:gap-6 py-6">
+      </section>
+      <div className="grid grid-cols-1 sm:grid-cols-2  gap-4 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-5 xl:gap-6 py-6 overflow-x-hidden">
         {topRatedProducts?.map((product: IProduct) => (
           <ProductCard key={product._id} product={product} />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
