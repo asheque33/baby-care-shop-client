@@ -7,10 +7,9 @@ import { IProduct } from "@/types/product.type";
 import { IProps } from "@/types/props.type";
 import { getSearchCategory } from "@/utils/getSearchCategory";
 import Link from "next/link";
-import React from "react";
 
 const ProductsPage = async (props: IProps) => {
-  const { searchParams } = props;
+  const { searchParams } = props; //{category:"Baby Bathtub"}
   const { data: searchedProducts } = await getSearchCategory(
     searchParams.category
   );
@@ -43,8 +42,12 @@ const ProductsPage = async (props: IProps) => {
                 </Button>
               </div>
               <div id="products-length" className="mb-4">
-                <p className="text-base  text-[#1898ae]">
-                  Showing 1-{searchedProducts.length} Of 19 item(s)
+                <p className="text-base  ">
+                  Showing{" "}
+                  <span className="text-[#1898ae]">
+                    1-{searchedProducts.length}
+                  </span>{" "}
+                  Of <span className="text-[#1898ae]">19</span> item(s)
                 </p>
                 <p className="text-slate-400 italic">
                   Products designed for safety, comfort, and joyful moments—from
