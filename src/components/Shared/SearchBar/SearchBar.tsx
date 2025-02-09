@@ -5,9 +5,9 @@ const SearchBar = () => {
   const searchedTerm = useAppSelector(searchTerm);
   const dispatch = useAppDispatch();
   return (
-    <div>
+    <>
       <input
-        className="border border-gray-300 rounded-md px-3 py-1"
+        className="border border-gray-300 rounded-md px-3 py-1 w-full"
         type="text"
         placeholder="Search Products..."
         value={searchedTerm}
@@ -15,7 +15,7 @@ const SearchBar = () => {
         name="search"
         id="search"
       />
-    </div>
+    </>
   );
 };
 
