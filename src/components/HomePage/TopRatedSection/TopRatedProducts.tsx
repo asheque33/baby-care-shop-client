@@ -14,7 +14,7 @@ const TopRatedProducts = async () => {
   // Filter and sort the products based on their rating
   const topRatedProducts: IProduct[] = products
     .sort((a: IProduct, b: IProduct) => b.ratings - a.ratings)
-    .slice(0, 8);
+    .slice(0, 6);
   return (
     <div className="py-8">
       <section className=" flex justify-between items-center mb-2 md:mb-4">
