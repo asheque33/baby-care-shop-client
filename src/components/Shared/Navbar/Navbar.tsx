@@ -11,6 +11,8 @@ import { selectedCartItems } from "@/redux/features/cartSlice";
 import { Badge } from "@/components/ui/badge";
 import { selectedToken, setLogOut } from "@/redux/features/authSlice";
 import { useEffect, useState } from "react";
+import Container from "../Container/Container";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -40,96 +42,115 @@ const Navbar = () => {
   const handleDashboardClick = () => {
     router.push(accessToken ? "/dashboard" : "/login");
   };
+  const handleCheckoutClick = () => {
+    router.push("/checkout");
+  };
 
   return (
-    <div className="h-16 bg-[#F5EFE6] bg-opacity-95 shadow-md">
-      <nav className="h-full w-full text-black mx-auto flex items-center justify-around">
-        <span className="font-extrabold text-xl">
-          <Link href={"/"}>
-            Bab<span className="text-[#15a2bb]">Kr</span>Shop
-          </Link>
-        </span>
-        <ul className="hidden lg:flex  space-x-6">
-          {/*text-[#40A2E3]*/}
-          <li
-            className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
-              isActive("/categories") ? "text-[#1898ae] " : ""
-            }`}
-          >
-            <Link href="/categories">Categories</Link>
-          </li>
-          <li
-            className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
-              isActive("/baby-accessories") ? "text-[#1898ae]" : ""
-            }`}
-          >
-            <Link href="/baby-accessories">Products</Link>
-          </li>
-          <li
-            className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
-              isActive("/flash-sale") ? "text-[#1898ae]" : ""
-            }`}
-          >
-            <Link href="/flash-sale">Flash Sale</Link>
-          </li>
-          <li
-            onClick={handleDashboardClick}
-            className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
-              isActive("/dashboard") ? "text-[#1898ae]" : ""
-            }`}
-          >
-            <Link href="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-        <div className="hidden lg:flex items-center justify-between gap-x-8">
-          {accessToken ? (
-            <Button
-              onClick={() => dispatch(setLogOut())}
-              className=" text-white border-0 hover:bg-opacity-90"
-              variant="destructive"
-            >
-              LogOut
-            </Button>
-          ) : (
-            <Button
-              className="bg-[#1898ae] border hover:border border-[#1898ae] text-white "
-              variant="outline"
-            >
-              <Link href={`/login`}>Login</Link>
-            </Button>
-          )}
+    <div className="h-full p-3 bg-[#F5EFE6] bg-opacity-95 shadow-md sticky top-0 z-[999]">
+      <Container className="flex flex-col gap-y-4">
+        <section className="h-full w-full text-black mx-auto flex items-center justify-between">
+          <span className="font-extrabold text-xl">
+            <Link href={"/"}>
+              Bab<span className="text-[#15a2bb]">Kr</span>Shop
+            </Link>
+          </span>
+          <div className=" w-full text-center mx-4 lg:mx-8">
+            <SearchBar />
+          </div>
 
-          <Link href={`/checkout`}>
-            <div className="relative">
+          <div className="hidden lg:flex items-center justify-between  gap-x-8 mr-2">
+            {accessToken ? (
+              <Button
+                onClick={() => dispatch(setLogOut())}
+                className=" text-white border-0 hover:bg-opacity-90"
+                variant="destructive"
+              >
+                LogOut
+              </Button>
+            ) : (
+              <>
+                <Button
+                  asChild
+                  className="text-[#1898ae] border hover:border border-[#1898ae]  "
+                  variant="outline"
+                >
+                  <Link href={`/login`}>Login</Link>
+                </Button>
+                <Button
+                  asChild
+                  className="bg-[#1898ae]  text-white "
+                  variant="default"
+                >
+                  <Link href={`/register`}>Register</Link>
+                </Button>
+              </>
+            )}
+            {/* <Button className="bg-[#1898ae]" onClick={handleCheckoutClick}> */}
+            <div
+              onClick={handleCheckoutClick}
+              className="relative cursor-pointer h-12 w-12"
+            >
               <Image
+                className=""
                 src={cartIcon}
-                height={0}
-                width={0}
+                height={100}
+                width={100}
                 alt="cartIcon"
-                className="relative size-8 "
               />
 
               {cartProducts.length > 0 && (
                 <Badge
-                  className="absolute -top-2.5 -right-3 size-6 bg-[#1898ae] p-3 rounded-full"
+                  className="absolute -top-2 -right-3 w-6 h-6 flex items-center justify-center bg-[#1898ae] rounded-full"
                   variant="default"
                 >
                   <span className=" text-lg">{cartProducts.length}</span>
                 </Badge>
               )}
             </div>
-          </Link>
-        </div>
-        <div id="menu-trigger" onClick={toggleDrawer} className="lg:hidden">
-          <Image
-            src={isDrawerOpen ? menuFoldOutIcon : menuFoldInIcon}
-            height={24}
-            width={24}
-            alt="menuFoldInIcon"
-            className="cursor-pointer"
-          />
-        </div>
-      </nav>
+            {/* </Button> */}
+          </div>
+          <div id="menu-trigger" onClick={toggleDrawer} className="lg:hidden">
+            <Image
+              src={isDrawerOpen ? menuFoldOutIcon : menuFoldInIcon}
+              height={24}
+              width={24}
+              alt="menuFoldInIcon"
+              className="cursor-pointer"
+            />
+          </div>
+        </section>
+        <section className="flex items-center justify-center gap-4">
+          <ul className="hidden lg:flex  space-x-6">
+            {/*text-[#40A2E3]*/}
+            {/* <li className="hidden lg:flex">
+              <SearchBar />
+            </li> */}
+            <li
+              className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
+                isActive("/baby-accessories") ? "text-[#1898ae]" : ""
+              }`}
+            >
+              <Link href="/baby-accessories">Products</Link>
+            </li>
+            <li
+              className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
+                isActive("/flash-sale") ? "text-[#1898ae]" : ""
+              }`}
+            >
+              <Link href="/flash-sale">Flash Sale</Link>
+            </li>
+            <li
+              onClick={handleDashboardClick}
+              className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
+                isActive("/dashboard") ? "text-[#1898ae]" : ""
+              }`}
+            >
+              <Link href="/dashboard">Dashboard</Link>
+            </li>
+          </ul>
+        </section>
+      </Container>
       {/* Drawer Overlay */}
       {isDrawerOpen && (
         <div
@@ -145,13 +166,6 @@ const Navbar = () => {
         } transition-transform duration-500`}
       >
         <ul onClick={() => setIsDrawerOpen(false)} className="p-4 space-y-4">
-          <li
-            className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
-              isActive("/categories") ? "text-[#1898ae] " : ""
-            }`}
-          >
-            <Link href="/categories">Categories</Link>
-          </li>
           <li
             className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
               isActive("/baby-accessories") ? "text-[#1898ae]" : ""
