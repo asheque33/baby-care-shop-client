@@ -23,16 +23,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { _id, title, image, price, prevPrice, ratings, isFlashSale } = product;
   const dispatch = useAppDispatch();
   const handleAddToCart = (product: IProduct) => {
-    console.log("add to cart", product);
     dispatch(addToCartItem(product));
   };
   const ratingsStyle = {
     itemShapes: RoundedStar,
-    activeFillColor: "#ffc107",
-    inactiveFillColor: "#ffe8a4",
+    activeFillColor: "#facc15",
+    // activeFillColor: "#ffc107",
+    // inactiveFillColor: "#ffe8a4",
+    inactiveFillColor: "#d1d5db",
   };
   return (
-    <Card className="relative w-3/4 sm:w-full h-full max-h-[350px] md:max-h-[400px] lg:max-h-[450px] mx-auto ">
+    <Card className="relative w-full h-full max-h-[350px] md:max-h-[400px] lg:max-h-[450px] mx-auto ">
       <Link className="  " href={`/baby-accessories/${_id}`}>
         <CardHeader className="relative h-full max-h-[180px] md:max-h-[200px] lg:max-h-[220px]  ">
           {/*overflow-hidden*/}
@@ -55,8 +56,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </CardHeader>
 
         <CardContent className="px-4 py-2">
-          <CardTitle className="text-sm md:text-lg lg:text-xl truncate">
-            {title.length > 20 ? `${title.slice(0, 20)}...` : title}
+          <CardTitle className="text-sm  md:text-lg truncate">
+            {title.length > 20 ? `${title.slice(0, 25)}...` : title}
           </CardTitle>
           <div className="flex items-center gap-x-2 text-xs md:text-sm lg:text-base font-semibold">
             {isFlashSale && (

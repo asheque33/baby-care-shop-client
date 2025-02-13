@@ -17,9 +17,9 @@ const CategoryCard = ({ title, href, image, bgSize }: ICategoryProps) => {
           backgroundRepeat: "no-repeat",
           backgroundSize: bgSize,
         }}
-        className="flex justify-center items-center shadow rounded-xl  hover:scale-105 hover:transition-all"
+        className="h-48 md:h-full flex justify-center items-center shadow rounded-xl  hover:scale-105 hover:transition-all"
       >
-        <span className="text-slate-600  font-medium">{title}</span>
+        <span className="text-[#3c3d37]  font-medium">{title}</span>
       </Link>
     </>
   );

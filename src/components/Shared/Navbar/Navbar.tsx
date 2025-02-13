@@ -48,18 +48,18 @@ const Navbar = () => {
 
   return (
     <div className="h-full p-3 bg-[#F5EFE6] bg-opacity-95 shadow-md sticky top-0 z-[999]">
-      <Container className="flex flex-col gap-y-4">
+      <Container className="flex flex-none lg:flex-col lg:gap-4">
         <section className="h-full w-full text-black mx-auto flex items-center justify-between">
-          <span className="font-extrabold text-xl">
+          <div className="font-extrabold text-2xl">
             <Link href={"/"}>
               Bab<span className="text-[#15a2bb]">Kr</span>Shop
             </Link>
-          </span>
+          </div>
           <div className=" w-full text-center mx-4 lg:mx-8">
             <SearchBar />
           </div>
 
-          <div className="hidden lg:flex items-center justify-between  gap-x-8 mr-2">
+          <div className="hidden lg:flex items-center justify-between  gap-x-8">
             {accessToken ? (
               <Button
                 onClick={() => dispatch(setLogOut())}
@@ -86,18 +86,11 @@ const Navbar = () => {
                 </Button>
               </>
             )}
-            {/* <Button className="bg-[#1898ae]" onClick={handleCheckoutClick}> */}
             <div
               onClick={handleCheckoutClick}
               className="relative cursor-pointer h-12 w-12"
             >
-              <Image
-                className=""
-                src={cartIcon}
-                height={100}
-                width={100}
-                alt="cartIcon"
-              />
+              <Image src={cartIcon} height={100} width={100} alt="cartIcon" />
 
               {cartProducts.length > 0 && (
                 <Badge
@@ -108,24 +101,30 @@ const Navbar = () => {
                 </Badge>
               )}
             </div>
-            {/* </Button> */}
           </div>
-          <div id="menu-trigger" onClick={toggleDrawer} className="lg:hidden">
+          <div
+            id="menu-trigger"
+            onClick={toggleDrawer}
+            className="lg:hidden flex items-center justify-center cursor-pointer h-12 w-12"
+          >
             <Image
               src={isDrawerOpen ? menuFoldOutIcon : menuFoldInIcon}
-              height={24}
-              width={24}
+              height={100}
+              width={100}
               alt="menuFoldInIcon"
-              className="cursor-pointer"
             />
           </div>
         </section>
-        <section className="flex items-center justify-center gap-4">
+        <section className="flex items-center relative left-[30%] gap-4">
           <ul className="hidden lg:flex  space-x-6">
             {/*text-[#40A2E3]*/}
-            {/* <li className="hidden lg:flex">
-              <SearchBar />
-            </li> */}
+            <li
+              className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
+                isActive("/") ? "text-[#1898ae]" : ""
+              }`}
+            >
+              <Link href="/">Home</Link>
+            </li>
             <li
               className={`hover:text-[#1898ae] focus:text-[#1898ae] font-bold text-lg ${
                 isActive("/baby-accessories") ? "text-[#1898ae]" : ""
@@ -206,24 +205,19 @@ const Navbar = () => {
               </Button>
             )}
           </li>
-          <li className="relative">
-            <Link href={`/checkout`}>
-              <Image
-                src={cartIcon}
-                height={0}
-                width={0}
-                alt="cartIcon"
-                className="mx-auto size-12 "
-              />
-              {cartProducts.length > 0 && (
-                <Badge
-                  className="absolute top-0  size-6 bg-[#1898ae] p-3 rounded-full"
-                  variant="default"
-                >
-                  <span className=" text-lg">{cartProducts.length}</span>
-                </Badge>
-              )}
-            </Link>
+          <li
+            onClick={handleCheckoutClick}
+            className="relative cursor-pointer size-12 mx-auto"
+          >
+            <Image src={cartIcon} height={0} width={0} alt="cartIcon" />
+            {cartProducts.length > 0 && (
+              <Badge
+                className="absolute top-0  size-6 bg-[#1898ae] p-3 rounded-full"
+                variant="default"
+              >
+                <span className=" text-lg">{cartProducts.length}</span>
+              </Badge>
+            )}
           </li>
         </ul>
       </div>

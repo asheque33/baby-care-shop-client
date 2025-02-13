@@ -2,14 +2,13 @@
 
 import { FacebookIcon, InstagramIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 import NewsLetter from "./NewsLetter";
 import Container from "../Container/Container";
 
 const Footer = () => {
   return (
     <footer className="h-full sm:h-72 pt-4  sm:pt-0  bg-[#15a2bb] text-white">
-      <Container className="h-[90%] w-10/12 flex flex-col gap-4 sm:flex-row sm:items-center justify-between text-lg font-normal text-white px-4 md:px-8 lg:px-12">
+      <Container className="h-[90%] w-full flex flex-col gap-4 sm:flex-row sm:items-center justify-between text-lg font-normal text-white px-4 md:px-8 lg:px-12">
         {/* First Column */}
         <div className="text-center w-full sm:w-1/3 px-2 ">
           <h1 className="text-xl font-semibold">BabyKrShop</h1>
@@ -54,8 +53,8 @@ const Footer = () => {
           </div>
         </div>
       </Container>
-      <p className="h-[10%] flex justify-center items-end my-1 sm:my-0">
-        © 2024 BabyKrShop. All rights reserved.
+      <p className="h-[10%] flex justify-center items-end py-1 text-xs font-light ">
+        Copyright © 2025 BabyCareLand.com
       </p>
     </footer>
   );

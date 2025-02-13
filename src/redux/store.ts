@@ -12,6 +12,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { cartReducer } from "./features/cartSlice";
 import { authReducer } from "./features/authSlice";
 import storage from "redux-persist/lib/storage";
+import { searchReducer } from "./features/searchSlice";
 // import noopStorage from "./noopStorage";
 
 const persistConfig = {
@@ -27,6 +28,7 @@ export const store = configureStore({
   reducer: {
     cart: persistedCartReducer,
     auth: persistedAuthReducer,
+    search: searchReducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   middleware: (getDefaultMiddleware) =>

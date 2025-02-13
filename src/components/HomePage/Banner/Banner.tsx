@@ -18,7 +18,7 @@ export function BannerSection() {
   );
 
   return (
-    <div className="px-4 md:px-8  lg:px-12">
+    <section className="pb-8">
       <Carousel
         plugins={[plugin.current]}
         onMouseEnter={plugin.current.stop}
@@ -47,6 +47,6 @@ export function BannerSection() {
         {/* <CarouselPrevious />
       <CarouselNext /> */}
       </Carousel>
-    </div>
+    </section>
   );
 }

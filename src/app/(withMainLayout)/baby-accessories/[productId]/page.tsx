@@ -69,15 +69,15 @@ const SingleProductPage = async ({ params }: IProps) => {
           <p className="text-lg font-medium mb-2">
             Category:{" "}
             <Link
-              className="text-[#2192FF] font-normal text-base"
-              href={`/baby-accessories`}
+              className="text-[#189] font-normal text-base"
+              href={`/baby-accessories?category=${product.category.toLowerCase()}`}
             >
               {product.category}
             </Link>
           </p>
           <p className="text-lg font-medium mb-3">$USD. {product.price}</p>
           {product.isFlashSale && (
-            <div className="w-full md:w-3/5 lg:w-1/2  flex justify-center text-[#333] bg-[#ffc107] mt-1 animate-bounce duration-1000 gap-x-2 md:gap-x-4 text-lg md:text-xl  font-medium rounded-sm">
+            <div className="w-fit px-5 py-1 flex justify-center text-[#333] bg-[#ffc107] mt-1 animate-bounce duration-1000 gap-x-2 md:gap-x-4 text-lg md:text-xl  font-medium rounded-sm">
               <span className="-mt-0.5 ">Flash Sale </span>
               <Image height={30} width={30} src={starFalling} alt="star" />{" "}
             </div>

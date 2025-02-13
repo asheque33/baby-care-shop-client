@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import CategoryCard from "./CategoryCard";
 
 const CategoriesSection = () => {
@@ -8,7 +6,7 @@ const CategoriesSection = () => {
       title: "Baby BathTub",
       href: "/baby-accessories?category=baby bathtub",
       image: "https://i.ibb.co.com/KjNVytH/bath-tub.png",
-      bgSize: "128px",
+      bgSize: "152px",
     },
     {
       title: "Feeding Bottle",
@@ -26,7 +24,7 @@ const CategoriesSection = () => {
       title: "Baby Oral Care",
       href: "/baby-accessories?category=baby oral care",
       image: "https://i.ibb.co.com/PmY1v6C/oral-care.png",
-      bgSize: "128px",
+      bgSize: "152px",
     },
   ];
   return (
@@ -41,21 +39,14 @@ const CategoriesSection = () => {
         </h6>
       </div>
       <div>
-        <div className="grid md:grid-cols-3 gap-4 h-96 mx-auto">
+        <div className="grid md:grid-cols-3 gap-4 h-auto md:h-96 mx-auto">
           <CategoryCard {...categories[0]} />
 
-          <div className="grid grid-rows-2 gap-y-4">
+          <div className="grid  md:grid-rows-2 gap-y-4">
             <CategoryCard {...categories[1]} />
             <CategoryCard {...categories[2]} />
           </div>
           <CategoryCard {...categories[3]} />
-        </div>
-        <div className="w-[25%] my-8 mx-auto">
-          <Link href="/categories">
-            <Button className="btn-square rounded-md md:rounded-full block ">
-              View All
-            </Button>
-          </Link>
         </div>
       </div>
     </section>

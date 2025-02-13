@@ -7,7 +7,7 @@ const SearchBar = () => {
   return (
     <>
       <input
-        className="border border-gray-300 rounded-md px-3 py-1 w-full"
+        className="border border-gray-300 border-b-2 border-b-[#1898ae] rounded-r-md p-1 lg:p-3 w-full lg:w-[70%]"
         type="text"
         placeholder="Search Products..."
         value={searchedTerm}

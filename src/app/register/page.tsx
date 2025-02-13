@@ -19,7 +19,7 @@ const RegisterPage = () => {
             </p>
           </section>
           <RegisterComponent />
-          <p className="py-1.5">
+          <span className="py-1.5">
             Already have an account?{" "}
             <Link
               className="text-blue-500/80 font-semibold text-lg"
@@ -27,8 +27,7 @@ const RegisterPage = () => {
             >
               Login
             </Link>{" "}
-            Please!
-          </p>
+          </span>
         </div>
       </div>
     </Container>

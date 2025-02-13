@@ -21,12 +21,12 @@ const LoginPage = () => {
           </section>
           <LoginComponent />
           <p className="my-1.5">
-            Don&apos;t have an account?{" "}
+            Don&apos;t have any account?{" "}
             <Link
               className="text-blue-500/80 font-semibold text-lg"
               href={`/register`}
             >
-              Create an account
+              Register
             </Link>
           </p>
         </div>
